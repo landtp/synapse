@@ -1,0 +1,22 @@
+{
+	"name": "DelimitedText101",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lanworkspace200-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "CSV",
+				"fileSystem": "lanfilesys200"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
