@@ -1,6 +1,30 @@
 {
 	"name": "Pipeline Get Excel",
 	"properties": {
+		"parameters": {
+			"fileName": {
+				"type": "array"
+			},
+			"sheetName": {
+				"type": "array",
+				"defaultValue": [
+					"5.1",
+					"5.2"
+				]
+			}
+		},
+		"variables": {
+			"fileName": {
+				"type": "Array"
+			},
+			"sheetName": {
+				"type": "Array",
+				"defaultValue": [
+					"5.1",
+					"5.2"
+				]
+			}
+		},
 		"annotations": []
 	}
 }
