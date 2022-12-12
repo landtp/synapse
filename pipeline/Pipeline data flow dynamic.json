@@ -20,14 +20,14 @@
 						"type": "DataFlowReference",
 						"datasetParameters": {
 							"source1": {
-								"SheetIndex": {
+								"SheetName": {
 									"value": "@pipeline().parameters.SoureSheetName",
 									"type": "Expression"
 								}
 							},
 							"sink1": {
 								"CSVName": {
-									"value": "@pipeline().parameters.SinkSheetName",
+									"value": "@pipeline().parameters.SinkFileName",
 									"type": "Expression"
 								}
 							}
@@ -50,7 +50,8 @@
 				"defaultValue": "5.1"
 			},
 			"SinkFileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "5.2"
 			},
 			"SinkSheetName": {
 				"type": "string",
