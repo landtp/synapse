@@ -3,30 +3,76 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Data flow1",
-				"type": "ExecuteDataFlow",
+				"name": "ForEach1",
+				"type": "ForEach",
 				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "Dataflow1",
-						"type": "DataFlowReference"
+					"items": {
+						"value": "@variables('SheetName')",
+						"type": "Expression"
 					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"traceLevel": "Fine"
+					"activities": [
+						{
+							"name": "Data flow1",
+							"type": "ExecuteDataFlow",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataflow": {
+									"referenceName": "Dataflow5",
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"source1": {
+											"SheetName": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										},
+										"sink1": {
+											"SheetName": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									}
+								},
+								"compute": {
+									"coreCount": 8,
+									"computeType": "General"
+								},
+								"traceLevel": "Fine"
+							}
+						}
+					]
 				}
 			}
 		],
+		"parameters": {
+			"SheetName": {
+				"type": "array",
+				"defaultValue": [
+					"5.1",
+					"5.2"
+				]
+			}
+		},
+		"variables": {
+			"SheetName": {
+				"type": "Array",
+				"defaultValue": [
+					"5.1",
+					"5.2"
+				]
+			}
+		},
 		"annotations": []
 	}
 }

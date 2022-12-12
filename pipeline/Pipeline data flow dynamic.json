@@ -26,9 +26,27 @@
 								}
 							},
 							"sink1": {
-								"CSVName": {
-									"value": "@pipeline().parameters.SinkFileName",
+								"SheetName": {
+									"value": "@pipeline().parameters.SinkSheetName",
 									"type": "Expression"
+								}
+							}
+						},
+						"linkedServiceParameters": {
+							"source1": {
+								"schemaLinkedService": {
+									"SheetName": {
+										"value": "@pipeline().parameters.SoureSheetName",
+										"type": "Expression"
+									}
+								}
+							},
+							"sink1": {
+								"schemaLinkedService": {
+									"SheetName": {
+										"value": "@pipeline().parameters.SinkSheetName",
+										"type": "Expression"
+									}
 								}
 							}
 						}
