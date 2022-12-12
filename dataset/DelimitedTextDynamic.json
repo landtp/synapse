@@ -5,11 +5,20 @@
 			"referenceName": "lanworkspace200-WorkspaceDefaultStorage",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"CSVName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().CSVName",
+					"type": "Expression"
+				},
 				"folderPath": "CSV",
 				"fileSystem": "lanfilesys200"
 			},

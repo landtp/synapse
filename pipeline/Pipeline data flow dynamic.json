@@ -17,7 +17,21 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "Dataflow4",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"SheetIndex": {
+									"value": "@pipeline().parameters.SoureSheetName",
+									"type": "Expression"
+								}
+							},
+							"sink1": {
+								"CSVName": {
+									"value": "@pipeline().parameters.SinkSheetName",
+									"type": "Expression"
+								}
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
@@ -27,6 +41,22 @@
 				}
 			}
 		],
+		"parameters": {
+			"SoureFileName": {
+				"type": "string"
+			},
+			"SoureSheetName": {
+				"type": "string",
+				"defaultValue": "5.1"
+			},
+			"SinkFileName": {
+				"type": "string"
+			},
+			"SinkSheetName": {
+				"type": "string",
+				"defaultValue": "5.1"
+			}
+		},
 		"annotations": []
 	}
 }

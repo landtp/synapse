@@ -5,14 +5,22 @@
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"SheetIndex": {
+				"type": "int"
+			}
+		},
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "5.1",
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Data test.xlsx",
 				"container": "lancontainer200"
+			},
+			"sheetIndex": {
+				"value": "@dataset().SheetIndex",
+				"type": "Expression"
 			}
 		},
 		"schema": [
