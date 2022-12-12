@@ -1,5 +1,5 @@
 {
-	"name": "ExcelMuti",
+	"name": "ExcelGetNameCSV",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
@@ -22,7 +22,7 @@
 				"fileName": "Data test.xlsx",
 				"container": "lancontainer200"
 			},
-			"range": ""
+			"range": "A1:B1"
 		},
 		"schema": []
 	}

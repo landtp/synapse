@@ -44,7 +44,6 @@
 				"          Column_13 as string,",
 				"          Column_14 as string",
 				"     ),",
-				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
