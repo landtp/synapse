@@ -53,10 +53,7 @@
 				"outputs": [
 					{
 						"referenceName": "DelimitedTextGetData",
-						"type": "DatasetReference",
-						"parameters": {
-							"outputfileName": "csv"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}

@@ -54,27 +54,9 @@
 						"referenceName": "Dataflow6",
 						"type": "DataFlowReference",
 						"parameters": {
-							"parameter1": {
+							"filenameCSV": {
 								"value": "'@{variables('csvName')}'",
 								"type": "Expression"
-							}
-						},
-						"datasetParameters": {
-							"sink1": {
-								"outputfileName": {
-									"value": "@variables('csvName')",
-									"type": "Expression"
-								}
-							}
-						},
-						"linkedServiceParameters": {
-							"sink1": {
-								"schemaLinkedService": {
-									"outputfileName": {
-										"value": "@variables('csvName')",
-										"type": "Expression"
-									}
-								}
 							}
 						}
 					},
@@ -100,7 +82,7 @@
 				"typeProperties": {
 					"variableName": "csvName",
 					"value": {
-						"value": "@activity('Lookup1').output",
+						"value": "@activity('Lookup1').output.value[1].Prop_1",
 						"type": "Expression"
 					}
 				}
