@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@variables('SheetName')",
+						"value": "@int(variables('SheetIndex'))",
 						"type": "Expression"
 					},
 					"activities": [
@@ -34,6 +34,10 @@
 											"SheetName": {
 												"value": "@item()",
 												"type": "Expression"
+											},
+											"SheetIndex": {
+												"value": "@item()",
+												"type": "Expression"
 											}
 										},
 										"sink1": {
@@ -53,6 +57,16 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "SheetIndex",
+					"value": ""
+				}
 			}
 		],
 		"parameters": {
@@ -65,12 +79,9 @@
 			}
 		},
 		"variables": {
-			"SheetName": {
-				"type": "Array",
-				"defaultValue": [
-					"5.1",
-					"5.2"
-				]
+			"SheetIndex": {
+				"type": "String",
+				"defaultValue": "3"
 			}
 		},
 		"annotations": []

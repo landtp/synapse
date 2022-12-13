@@ -108,8 +108,7 @@
 		],
 		"variables": {
 			"csvName": {
-				"type": "String",
-				"defaultValue": "csv"
+				"type": "String"
 			}
 		},
 		"annotations": []

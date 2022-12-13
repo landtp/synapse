@@ -8,19 +8,22 @@
 		"parameters": {
 			"SheetName": {
 				"type": "string"
+			},
+			"SheetIndex": {
+				"type": "int"
 			}
 		},
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": {
-				"value": "@dataset().SheetName",
-				"type": "Expression"
-			},
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Data test.xlsx",
 				"container": "lancontainer200"
+			},
+			"sheetIndex": {
+				"value": "@dataset().SheetIndex",
+				"type": "Expression"
 			},
 			"range": ""
 		},
