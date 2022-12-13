@@ -1,28 +1,108 @@
 {
 	"name": "Pipeline Get Excel",
 	"properties": {
-		"parameters": {
-			"fileName": {
-				"type": "array"
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"dataset": {
+						"referenceName": "ExcelGetNameCSV",
+						"type": "DatasetReference"
+					}
+				}
 			},
-			"sheetName": {
-				"type": "array",
-				"defaultValue": [
-					"5.1",
-					"5.2"
-				]
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Dataflow6",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"sink1": {
+								"outputfileName": {
+									"value": "@variables('csvName')",
+									"type": "Expression"
+								}
+							}
+						},
+						"linkedServiceParameters": {
+							"sink1": {
+								"schemaLinkedService": {
+									"outputfileName": {
+										"value": "@variables('csvName')",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "csvName",
+					"value": {
+						"value": "@activity('Lookup1').output.firstRow.Prop_1",
+						"type": "Expression"
+					}
+				}
 			}
-		},
+		],
 		"variables": {
-			"fileName": {
-				"type": "Array"
-			},
-			"sheetName": {
-				"type": "Array",
-				"defaultValue": [
-					"5.1",
-					"5.2"
-				]
+			"csvName": {
+				"type": "String",
+				"defaultValue": "csv"
 			}
 		},
 		"annotations": []
