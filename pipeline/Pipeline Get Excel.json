@@ -58,6 +58,24 @@
 								"value": "'@{variables('csvName')}'",
 								"type": "Expression"
 							}
+						},
+						"datasetParameters": {
+							"sink1": {
+								"outputfilename": {
+									"value": "@variables('csvName')",
+									"type": "Expression"
+								}
+							}
+						},
+						"linkedServiceParameters": {
+							"sink1": {
+								"schemaLinkedService": {
+									"outputfilename": {
+										"value": "@variables('csvName')",
+										"type": "Expression"
+									}
+								}
+							}
 						}
 					},
 					"compute": {
