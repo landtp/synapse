@@ -26,7 +26,8 @@
 					"dataset": {
 						"referenceName": "ExcelGetNameCSV",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -99,7 +100,7 @@
 				"typeProperties": {
 					"variableName": "csvName",
 					"value": {
-						"value": "@activity('Lookup1').output.firstRow.Prop_1",
+						"value": "@activity('Lookup1').output",
 						"type": "Expression"
 					}
 				}
