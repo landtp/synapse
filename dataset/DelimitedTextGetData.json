@@ -16,6 +16,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(dataset().outputfileName,'.csv')",
+					"type": "Expression"
+				},
 				"folderPath": "CSV",
 				"fileSystem": "lanfilesys200"
 			},
