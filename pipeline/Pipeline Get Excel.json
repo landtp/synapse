@@ -52,6 +52,12 @@
 					"dataflow": {
 						"referenceName": "Dataflow6",
 						"type": "DataFlowReference",
+						"parameters": {
+							"parameter1": {
+								"value": "'@{variables('csvName')}'",
+								"type": "Expression"
+							}
+						},
 						"datasetParameters": {
 							"sink1": {
 								"outputfileName": {

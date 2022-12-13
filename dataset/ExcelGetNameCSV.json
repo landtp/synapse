@@ -14,7 +14,7 @@
 				"fileName": "Data test.xlsx",
 				"container": "lancontainer200"
 			},
-			"range": "A1:B1"
+			"range": "A1:B3"
 		},
 		"schema": []
 	}
