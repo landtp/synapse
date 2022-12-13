@@ -10,6 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "concat($filenameCSV,'.csv')",
+					"type": "Expression"
+				},
 				"folderPath": "CSV",
 				"fileSystem": "lanfilesys200"
 			},
