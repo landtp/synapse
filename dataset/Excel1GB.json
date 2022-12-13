@@ -8,10 +8,10 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "500000 Sales Records (22)",
+			"sheetName": "500000 Sales Records",
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "500000_Records_Data_1GB.xlsx",
+				"fileName": "500000_Records_Data_2GB.xlsx",
 				"container": "lancontainer200"
 			}
 		},
