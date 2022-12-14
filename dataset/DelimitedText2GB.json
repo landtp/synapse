@@ -1,17 +1,21 @@
 {
-	"name": "Excel1GB",
+	"name": "DelimitedText2GB",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage1",
+			"referenceName": "lanworkspace200-WorkspaceDefaultStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "Excel",
+		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"container": "lancontainer200"
-			}
+				"type": "AzureBlobFSLocation",
+				"folderPath": "CSV",
+				"fileSystem": "lanfilesys200"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
 		},
 		"schema": [
 			{

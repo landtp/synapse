@@ -1,0 +1,19 @@
+{
+	"name": "Excel2GB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "500000_Records_Data_2GB.xlsx",
+				"container": "lancontainer200"
+			}
+		},
+		"schema": []
+	}
+}
