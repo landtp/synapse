@@ -3,79 +3,12 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Data flow1",
-				"type": "ExecuteDataFlow",
+				"name": "ForEach Excel",
+				"type": "ForEach",
 				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"dataflow": {
-						"referenceName": "Dataflow4",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"source1": {
-								"SheetName": {
-									"value": "@pipeline().parameters.SoureSheetName",
-									"type": "Expression"
-								}
-							},
-							"sink1": {
-								"SheetName": {
-									"value": "@pipeline().parameters.SinkSheetName",
-									"type": "Expression"
-								}
-							}
-						},
-						"linkedServiceParameters": {
-							"source1": {
-								"schemaLinkedService": {
-									"SheetName": {
-										"value": "@pipeline().parameters.SoureSheetName",
-										"type": "Expression"
-									}
-								}
-							},
-							"sink1": {
-								"schemaLinkedService": {
-									"SheetName": {
-										"value": "@pipeline().parameters.SinkSheetName",
-										"type": "Expression"
-									}
-								}
-							}
-						}
-					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"traceLevel": "Fine"
-				}
+				"userProperties": []
 			}
 		],
-		"parameters": {
-			"SoureFileName": {
-				"type": "string"
-			},
-			"SoureSheetName": {
-				"type": "string",
-				"defaultValue": "5.1"
-			},
-			"SinkFileName": {
-				"type": "string",
-				"defaultValue": "5.2"
-			},
-			"SinkSheetName": {
-				"type": "string",
-				"defaultValue": "5.1"
-			}
-		},
 		"annotations": []
 	}
 }
