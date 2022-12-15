@@ -120,8 +120,7 @@
 				"defaultValue": "0"
 			},
 			"ErroHandling": {
-				"type": "Boolean",
-				"defaultValue": false
+				"type": "Boolean"
 			}
 		},
 		"annotations": []
