@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@int(variables('SheetIndex'))",
+						"value": "@pipeline().parameters.SheetName",
 						"type": "Expression"
 					},
 					"activities": [
@@ -66,12 +66,6 @@
 					"5.1",
 					"5.2"
 				]
-			}
-		},
-		"variables": {
-			"SheetIndex": {
-				"type": "String",
-				"defaultValue": "3"
 			}
 		},
 		"annotations": []
