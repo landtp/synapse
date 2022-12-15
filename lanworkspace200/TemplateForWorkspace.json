@@ -162,7 +162,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/dataflows/Dataflow8')]"
+				"[concat(variables('workspaceId'), '/dataflows/Dataflow8')]",
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
 			]
 		},
 		{
@@ -1422,7 +1423,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Data test.xlsx",
+						"fileName": "500000_Records_Data_2GB.xlsx",
 						"container": "lancontainer200"
 					},
 					"sheetIndex": {
@@ -2103,7 +2104,6 @@
 						"          Column_8 as string,",
 						"          Column_9 as string",
 						"     ),",
-						"     filePattern:'Test[n].csv',",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
