@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "ExcelMuti",
+						"referenceName": "Exceltest2gb",
 						"type": "DatasetReference"
 					},
 					"name": "source1"

@@ -30,12 +30,6 @@
 									"referenceName": "Dataflow5",
 									"type": "DataFlowReference",
 									"datasetParameters": {
-										"source1": {
-											"SheetName": {
-												"value": "@item()",
-												"type": "Expression"
-											}
-										},
 										"sink1": {
 											"SheetName": {
 												"value": "@item()",
