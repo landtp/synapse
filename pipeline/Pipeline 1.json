@@ -119,7 +119,8 @@
 				"defaultValue": "0"
 			},
 			"ErroHandling": {
-				"type": "Boolean"
+				"type": "Boolean",
+				"defaultValue": false
 			}
 		},
 		"annotations": []
