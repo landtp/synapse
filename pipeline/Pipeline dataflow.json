@@ -45,7 +45,7 @@
 									}
 								},
 								"compute": {
-									"coreCount": 32,
+									"coreCount": 80,
 									"computeType": "MemoryOptimized"
 								},
 								"traceLevel": "Fine"
