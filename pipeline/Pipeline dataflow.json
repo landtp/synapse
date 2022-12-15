@@ -59,8 +59,14 @@
 			"SheetName": {
 				"type": "array",
 				"defaultValue": [
-					"5.1",
-					"5.2"
+					"500000 Sales Records",
+					"500000 Sales Records (1)",
+					"500000 Sales Records (2)",
+					"500000 Sales Records (3)",
+					"500000 Sales Records (4)",
+					"500000 Sales Records (5)",
+					"500000 Sales Records (6)",
+					"500000 Sales Records (7)"
 				]
 			}
 		},
