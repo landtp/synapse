@@ -39,7 +39,7 @@
 									"datasetParameters": {
 										"source1": {
 											"SheetIndex": {
-												"value": "@int(variables('Counter'))",
+												"value": "@item()",
 												"type": "Expression"
 											}
 										}
