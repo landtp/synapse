@@ -1,14 +1,6 @@
 {
 	"name": "Pipeline data flow dynamic",
 	"properties": {
-		"activities": [
-			{
-				"name": "ForEach Excel",
-				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": []
-			}
-		],
 		"annotations": []
 	}
 }
