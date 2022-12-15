@@ -42,21 +42,11 @@
 												"type": "Expression"
 											}
 										}
-									},
-									"linkedServiceParameters": {
-										"source1": {
-											"schemaLinkedService": {
-												"SheetName": {
-													"value": "@item()",
-													"type": "Expression"
-												}
-											}
-										}
 									}
 								},
 								"compute": {
-									"coreCount": 8,
-									"computeType": "General"
+									"coreCount": 32,
+									"computeType": "MemoryOptimized"
 								},
 								"traceLevel": "Fine"
 							}
