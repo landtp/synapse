@@ -8,9 +8,6 @@
 		"parameters": {
 			"SheetName": {
 				"type": "string"
-			},
-			"SheetIndex": {
-				"type": "int"
 			}
 		},
 		"annotations": [],
@@ -22,7 +19,7 @@
 			},
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Data test.xlsx",
+				"fileName": "500000_Records_Data_2GB.xlsx",
 				"container": "lancontainer200"
 			},
 			"range": ""

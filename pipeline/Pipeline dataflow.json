@@ -34,10 +34,6 @@
 											"SheetName": {
 												"value": "@item()",
 												"type": "Expression"
-											},
-											"SheetIndex": {
-												"value": "@item()",
-												"type": "Expression"
 											}
 										},
 										"sink1": {
