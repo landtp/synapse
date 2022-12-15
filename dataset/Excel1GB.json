@@ -8,6 +8,7 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
+			"sheetName": "500000 Sales Records",
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"container": "lancontainer200"
