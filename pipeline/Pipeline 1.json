@@ -3,22 +3,22 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
-				"type": "ForEach",
+				"name": "Until1",
+				"type": "Until",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
-					"items": {
-						"value": "@activity('Data flow1').output",
+					"expression": {
+						"value": "@variables('ErroHandling')",
 						"type": "Expression"
 					},
 					"activities": [
 						{
-							"name": "Data flow1",
+							"name": "Data flow1_copy1",
 							"type": "ExecuteDataFlow",
 							"dependsOn": [
 								{
-									"activity": "SetTempCounter",
+									"activity": "SetTempCounter_copy1",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -39,7 +39,7 @@
 									"datasetParameters": {
 										"source1": {
 											"SheetIndex": {
-												"value": "@item()",
+												"value": "@int(variables('Counter'))",
 												"type": "Expression"
 											}
 										}
@@ -53,7 +53,7 @@
 							}
 						},
 						{
-							"name": "SetTempCounter",
+							"name": "SetTempCounter_copy1",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"userProperties": [],
@@ -66,11 +66,11 @@
 							}
 						},
 						{
-							"name": "SetCounter",
+							"name": "SetCounter_copy1",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "Data flow1",
+									"activity": "Data flow1_copy1",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -86,11 +86,11 @@
 							}
 						},
 						{
-							"name": "SetErrror",
+							"name": "SetErrror_copy1",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "Data flow1",
+									"activity": "Data flow1_copy1",
 									"dependencyConditions": [
 										"Failed"
 									]
@@ -105,7 +105,8 @@
 								}
 							}
 						}
-					]
+					],
+					"timeout": "0.12:00:00"
 				}
 			}
 		],
