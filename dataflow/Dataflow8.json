@@ -39,7 +39,6 @@
 				"          Column_8 as string,",
 				"          Column_9 as string",
 				"     ),",
-				"     filePattern:'Test[n].csv',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
