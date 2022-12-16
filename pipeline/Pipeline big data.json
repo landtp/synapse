@@ -1,5 +1,5 @@
 {
-	"name": "Pipeline fordata",
+	"name": "Pipeline big data",
 	"properties": {
 		"activities": [
 			{
@@ -14,7 +14,7 @@
 					},
 					"activities": [
 						{
-							"name": "Data flow1",
+							"name": "Data flow2",
 							"type": "ExecuteDataFlow",
 							"dependsOn": [],
 							"policy": {
@@ -28,7 +28,15 @@
 							"typeProperties": {
 								"dataflow": {
 									"referenceName": "Dataflow2",
-									"type": "DataFlowReference"
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"source1": {
+											"SheetName": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									}
 								},
 								"compute": {
 									"coreCount": 8,
@@ -43,7 +51,11 @@
 		],
 		"parameters": {
 			"SheetName": {
-				"type": "array"
+				"type": "array",
+				"defaultValue": [
+					"500000 Sales Records",
+					"500000 Sales Records (2)"
+				]
 			}
 		},
 		"annotations": []
