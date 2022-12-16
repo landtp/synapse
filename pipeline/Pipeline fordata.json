@@ -27,13 +27,23 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataflow": {
-									"referenceName": "Dataflow2",
+									"referenceName": "Dataflow1",
 									"type": "DataFlowReference",
 									"datasetParameters": {
 										"source1": {
 											"SheetName": {
 												"value": "@item()",
 												"type": "Expression"
+											}
+										}
+									},
+									"linkedServiceParameters": {
+										"source1": {
+											"schemaLinkedService": {
+												"SheetName": {
+													"value": "@item()",
+													"type": "Expression"
+												}
 											}
 										}
 									}
