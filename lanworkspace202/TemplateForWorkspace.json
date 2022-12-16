@@ -128,7 +128,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataflow": {
-											"referenceName": "Dataflow1",
+											"referenceName": "Dataflow2",
 											"type": "DataFlowReference",
 											"parameters": {},
 											"datasetParameters": {
@@ -140,7 +140,11 @@
 												},
 												"sink1": {}
 											},
-											"linkedServiceParameters": {}
+											"linkedServiceParameters": {
+												"source1": {
+													"schemaLinkedService": {}
+												}
+											}
 										},
 										"staging": {},
 										"compute": {
@@ -167,7 +171,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]",
-				"[concat(variables('workspaceId'), '/dataflows/Dataflow1')]"
+				"[concat(variables('workspaceId'), '/dataflows/Dataflow2')]"
 			]
 		},
 		{
@@ -180,7 +184,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "ExcelSource",
+								"referenceName": "Excel2gb",
 								"type": "DatasetReference"
 							},
 							"name": "source1"
@@ -189,7 +193,7 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "DelimitedText1",
+								"referenceName": "DelimitedText2gb",
 								"type": "DatasetReference"
 							},
 							"name": "sink1"
@@ -211,8 +215,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/datasets/ExcelSource')]",
-				"[concat(variables('workspaceId'), '/datasets/DelimitedText1')]"
+				"[concat(variables('workspaceId'), '/datasets/Excel2gb')]",
+				"[concat(variables('workspaceId'), '/datasets/DelimitedText2gb')]"
 			]
 		},
 		{
@@ -291,6 +295,192 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/linkedServices/lanworkspace202-WorkspaceDefaultStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/Pipeline big data')]",
+			"type": "Microsoft.Synapse/workspaces/pipelines",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"activities": [
+					{
+						"name": "ForEach1",
+						"type": "ForEach",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@pipeline().parameters.SheetName",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "Data flow2",
+									"type": "ExecuteDataFlow",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataflow": {
+											"referenceName": "Dataflow2",
+											"type": "DataFlowReference",
+											"parameters": {},
+											"datasetParameters": {
+												"source1": {
+													"SheetName": {
+														"value": "@item()",
+														"type": "Expression"
+													}
+												},
+												"sink1": {}
+											},
+											"linkedServiceParameters": {
+												"source1": {
+													"schemaLinkedService": {}
+												}
+											}
+										},
+										"staging": {},
+										"compute": {
+											"coreCount": 8,
+											"computeType": "General"
+										},
+										"traceLevel": "Fine"
+									}
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"SheetName": {
+						"type": "array",
+						"defaultValue": [
+							"500000 Sales Records",
+							"500000 Sales Records (2)"
+						]
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]",
+				"[concat(variables('workspaceId'), '/dataflows/Dataflow2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/Excel2gb')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lanstoragename",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"SheetName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": {
+						"value": "@dataset().SheetName",
+						"type": "Expression"
+					},
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "500000_Records_Data_2GB.xlsx",
+						"container": "lancontainer200"
+					}
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/lanstoragename')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/DelimitedText2gb')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lanworkspace202-WorkspaceDefaultStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "CSV",
+						"fileSystem": "lanfilegen2"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/lanworkspace202-WorkspaceDefaultStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/Dataflow2')]",
+			"type": "Microsoft.Synapse/workspaces/dataflows",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "Excel2gb",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "DelimitedText2gb",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [],
+					"scriptLines": [
+						"source(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> source1",
+						"source1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/datasets/Excel2gb')]",
+				"[concat(variables('workspaceId'), '/datasets/DelimitedText2gb')]"
 			]
 		}
 	]
