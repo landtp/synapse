@@ -340,11 +340,7 @@
 												},
 												"sink1": {}
 											},
-											"linkedServiceParameters": {
-												"source1": {
-													"schemaLinkedService": {}
-												}
-											}
+											"linkedServiceParameters": {}
 										},
 										"staging": {},
 										"compute": {
@@ -470,6 +466,7 @@
 						"     ignoreNoFilesFound: false) ~> source1",
 						"source1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     filePattern:'test[n].csv',",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
