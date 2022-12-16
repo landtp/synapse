@@ -128,7 +128,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataflow": {
-											"referenceName": "Dataflow2",
+											"referenceName": "Dataflow1",
 											"type": "DataFlowReference",
 											"parameters": {},
 											"datasetParameters": {
@@ -142,7 +142,12 @@
 											},
 											"linkedServiceParameters": {
 												"source1": {
-													"schemaLinkedService": {}
+													"schemaLinkedService": {
+														"SheetName": {
+															"value": "@item()",
+															"type": "Expression"
+														}
+													}
 												}
 											}
 										},
@@ -171,7 +176,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]",
-				"[concat(variables('workspaceId'), '/dataflows/Dataflow2')]"
+				"[concat(variables('workspaceId'), '/dataflows/Dataflow1')]"
 			]
 		},
 		{
@@ -184,7 +189,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "Excel2gb",
+								"referenceName": "ExcelSource",
 								"type": "DatasetReference"
 							},
 							"name": "source1"
@@ -193,7 +198,7 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "DelimitedText2gb",
+								"referenceName": "DelimitedText1",
 								"type": "DatasetReference"
 							},
 							"name": "sink1"
@@ -215,8 +220,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/datasets/Excel2gb')]",
-				"[concat(variables('workspaceId'), '/datasets/DelimitedText2gb')]"
+				"[concat(variables('workspaceId'), '/datasets/ExcelSource')]",
+				"[concat(variables('workspaceId'), '/datasets/DelimitedText1')]"
 			]
 		},
 		{
