@@ -466,7 +466,7 @@
 						"     ignoreNoFilesFound: false) ~> source1",
 						"source1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
-						"     filePattern:'test[n].csv',",
+						"     filePattern:'test[n]',",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
