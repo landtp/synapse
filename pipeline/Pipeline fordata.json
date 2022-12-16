@@ -28,7 +28,15 @@
 							"typeProperties": {
 								"dataflow": {
 									"referenceName": "Dataflow2",
-									"type": "DataFlowReference"
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"source1": {
+											"SheetName": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									}
 								},
 								"compute": {
 									"coreCount": 8,
