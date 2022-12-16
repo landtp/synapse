@@ -36,16 +36,6 @@
 												"type": "Expression"
 											}
 										}
-									},
-									"linkedServiceParameters": {
-										"source1": {
-											"schemaLinkedService": {
-												"SheetName": {
-													"value": "@item()",
-													"type": "Expression"
-												}
-											}
-										}
 									}
 								},
 								"compute": {
@@ -61,7 +51,11 @@
 		],
 		"parameters": {
 			"SheetName": {
-				"type": "array"
+				"type": "array",
+				"defaultValue": [
+					"500000 Sales Records",
+					"500000 Sales Records (2)"
+				]
 			}
 		},
 		"annotations": []
