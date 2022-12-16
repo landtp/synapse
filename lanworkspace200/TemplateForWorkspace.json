@@ -162,8 +162,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/dataflows/Dataflow8')]",
-				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+				"[concat(variables('workspaceId'), '/dataflows/Dataflow8')]"
 			]
 		},
 		{
@@ -409,8 +408,8 @@
 							},
 							"staging": {},
 							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
+								"coreCount": 48,
+								"computeType": "MemoryOptimized"
 							},
 							"traceLevel": "Fine"
 						}
@@ -477,7 +476,7 @@
 										},
 										"staging": {},
 										"compute": {
-											"coreCount": 32,
+											"coreCount": 80,
 											"computeType": "MemoryOptimized"
 										},
 										"traceLevel": "Fine"
