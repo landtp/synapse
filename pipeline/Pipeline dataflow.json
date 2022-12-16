@@ -44,9 +44,9 @@
 										}
 									}
 								},
-								"compute": {
-									"coreCount": 80,
-									"computeType": "MemoryOptimized"
+								"integrationRuntime": {
+									"referenceName": "IntegrationRuntime1",
+									"type": "IntegrationRuntimeReference"
 								},
 								"traceLevel": "Fine"
 							}
