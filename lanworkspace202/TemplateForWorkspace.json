@@ -426,7 +426,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "CSV",
 						"fileSystem": "lanfilegen2"
 					},
 					"columnDelimiter": ",",
