@@ -5,11 +5,11 @@
 		"workspaceName": {
 			"value": "lanworkspace202"
 		},
-		"lanworkspace202-WorkspaceDefaultSqlServer_connectionString": {
-			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:lanworkspace202.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
-		},
 		"lanstoragename_connectionString": {
 			"value": ""
+		},
+		"lanworkspace202-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:lanworkspace202.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
 		},
 		"lanworkspace202-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://landatalakegen2.dfs.core.windows.net"
