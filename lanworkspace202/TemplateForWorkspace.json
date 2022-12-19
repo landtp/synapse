@@ -41,6 +41,7 @@
 								"value": "@pipeline().parameters.SheetName",
 								"type": "Expression"
 							},
+							"isSequential": true,
 							"activities": [
 								{
 									"name": "Data flow2",
@@ -72,8 +73,7 @@
 														"type": "Expression"
 													}
 												}
-											},
-											"linkedServiceParameters": {}
+											}
 										},
 										"staging": {},
 										"compute": {
