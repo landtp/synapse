@@ -140,16 +140,7 @@
 												},
 												"sink1": {}
 											},
-											"linkedServiceParameters": {
-												"source1": {
-													"schemaLinkedService": {
-														"SheetName": {
-															"value": "@item()",
-															"type": "Expression"
-														}
-													}
-												}
-											}
+											"linkedServiceParameters": {}
 										},
 										"staging": {},
 										"compute": {
@@ -169,7 +160,11 @@
 				},
 				"parameters": {
 					"SheetName": {
-						"type": "array"
+						"type": "array",
+						"defaultValue": [
+							"500000 Sales Records",
+							"500000 Sales Records (2)"
+						]
 					}
 				},
 				"annotations": []
@@ -426,6 +421,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"folderPath": "CSV",
 						"fileSystem": "lanfilegen2"
 					},
 					"columnDelimiter": ",",
