@@ -35,6 +35,12 @@
 												"value": "@item()",
 												"type": "Expression"
 											}
+										},
+										"sink1": {
+											"SheetName": {
+												"value": "@item()",
+												"type": "Expression"
+											}
 										}
 									}
 								},
