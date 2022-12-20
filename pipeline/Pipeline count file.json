@@ -25,7 +25,14 @@
 						{
 							"name": "SetCounter",
 							"type": "SetVariable",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Data flow copy",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"userProperties": [],
 							"typeProperties": {
 								"variableName": "Counter",
@@ -38,7 +45,14 @@
 						{
 							"name": "SetErrror",
 							"type": "SetVariable",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Data flow copy",
+									"dependencyConditions": [
+										"Failed"
+									]
+								}
+							],
 							"userProperties": [],
 							"typeProperties": {
 								"variableName": "ErroHandling",
@@ -48,7 +62,14 @@
 						{
 							"name": "Data flow copy",
 							"type": "ExecuteDataFlow",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "SetTempCounter",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
