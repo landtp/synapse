@@ -1,6 +1,92 @@
 {
-	"name": "Pipeline Count file",
+	"name": "Pipeline count file",
 	"properties": {
+		"activities": [
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"activities": [
+						{
+							"name": "SetTempCounter",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "TempCounter",
+								"value": {
+									"value": "@string(add(int(variables('Counter')),1))",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "SetCounter",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Counter",
+								"value": {
+									"value": "@variables('TempCounter')",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "SetErrror",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "ErroHandling",
+								"value": ""
+							}
+						},
+						{
+							"name": "Data flow copy",
+							"type": "ExecuteDataFlow",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataflow": {
+									"referenceName": "Dataflowcopy",
+									"type": "DataFlowReference"
+								},
+								"compute": {
+									"coreCount": 8,
+									"computeType": "General"
+								},
+								"traceLevel": "Fine"
+							}
+						}
+					],
+					"timeout": "0.12:00:00"
+				}
+			}
+		],
+		"variables": {
+			"Counter": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"TempCounter": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"ErroHandling": {
+				"type": "Boolean"
+			}
+		},
 		"annotations": []
 	}
 }
