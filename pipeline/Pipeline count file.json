@@ -81,7 +81,15 @@
 							"typeProperties": {
 								"dataflow": {
 									"referenceName": "Dataflowcopy",
-									"type": "DataFlowReference"
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"source1": {
+											"SheetIndex": {
+												"value": "@int(variables('Counter'))",
+												"type": "Expression"
+											}
+										}
+									}
 								},
 								"compute": {
 									"coreCount": 8,

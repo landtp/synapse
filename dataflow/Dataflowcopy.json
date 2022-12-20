@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "ExcelSource",
+						"referenceName": "ExcelIndex",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
