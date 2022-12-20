@@ -56,7 +56,10 @@
 							"userProperties": [],
 							"typeProperties": {
 								"variableName": "ErroHandling",
-								"value": ""
+								"value": {
+									"value": "@bool(1)",
+									"type": "Expression"
+								}
 							}
 						},
 						{
